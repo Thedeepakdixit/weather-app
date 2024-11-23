@@ -1,3 +1,4 @@
+/* Base styles (default for desktop) */
 body {
     background: #8C52FF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -93,4 +94,82 @@ button:hover {
 #hourly-heading {
     color: #fff;
     margin-top: 10px;
+}
+
+/* Tablet styles (screens between 768px and 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    #weather-container {
+        max-width: 600px;
+        padding: 15px;
+    }
+
+    #temp-div p {
+        font-size: 50px;
+    }
+
+    button {
+        width: 80px;
+        font-size: 14px;
+    }
+
+    #hourly-forecast {
+        margin-top: 30px;
+    }
+
+    .hourly-item {
+        width: 70px;
+        margin-right: 8px;
+    }
+}
+
+/* Mobile styles (screens below 768px) */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    #weather-container {
+        max-width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    input {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #temp-div p {
+        font-size: 40px;
+    }
+
+    #weather-info {
+        font-size: 16px;
+    }
+
+    #hourly-forecast {
+        margin-top: 20px;
+    }
+
+    .hourly-item {
+        width: 60px;
+        margin-right: 5px;
+    }
+
+    .hourly-item img {
+        width: 25px;
+        height: 25px;
+    }
 }
