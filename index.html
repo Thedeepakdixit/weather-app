@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
     <div id="weather-container">
-        <h2>Weather App</h2>
-        <input type="text" id="city" placeholder="Enter city">
-        <button onclick="getWeather()">Search</button>
+        <h2>Weather Forecast</h2>
 
-        <img id="weather-icon" alt="Weather Icon">
+        <!-- Input for City -->
+        <label for="city-input">Enter city:</label>
+        <input type="text" id="city-input" placeholder="City Name">
+        <button id="submit-button">Submit</button>
 
-        <div id="temp-div"></div>
-
+        <!-- Weather Info -->
         <div id="weather-info"></div>
+        <div id="temp-div"></div>
+        <img id="weather-icon" alt="Weather Icon" style="display: none;">
 
+        <!-- Toggle Forecast Button -->
+        <button onclick="toggleForecast()">Toggle Forecast</button>
+
+        <!-- Temperature Chart -->
+        <div id="chart-container" style="width: 100%; height: 300px; margin-top: 30px;">
+            <canvas id="temp-chart"></canvas>
+        </div>
+
+        <!-- Map Container -->
+        <div id="map-container" style="margin-top: 30px; height: 300px;">
+            <div id="mapid" style="width: 100%; height: 100%;"></div>
+        </div>
+
+        <!-- Hourly Forecast -->
         <div id="hourly-forecast"></div>
     </div>
-    <script src="./script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
