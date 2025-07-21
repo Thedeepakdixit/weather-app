@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+
+  <!-- Pico CSS Framework -->
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="weather-container">
-        <h2>Weather Forecast</h2>
+  <main class="container">
+    <h1 style="text-align:center;">🌤️ Weather Forecast App</h1>
 
-        <!-- Input for City -->
-        <label for="city-input">Enter city:</label>
-        <input type="text" id="city-input" placeholder="City Name">
-        <button id="submit-button">Submit</button>
+    <form id="weather-form">
+      <label for="city-input">Enter City:</label>
+      <input type="text" id="city-input" placeholder="City Name" required />
+      <button type="submit">Search</button>
+    </form>
 
-        <!-- Weather Info -->
-        <div id="weather-info"></div>
-        <div id="temp-div"></div>
-        <img id="weather-icon" alt="Weather Icon" style="display: none;">
+    <div id="loader" class="loader" style="display:none;"></div>
 
-        <!-- Toggle Forecast Button -->
-        <button onclick="toggleForecast()">Toggle Forecast</button>
+    <section id="weather-card" style="display: none;">
+      <h2 id="city-name"></h2>
+      <img id="weather-icon" alt="Weather Icon" style="width:100px;height:100px;" />
+      <p id="description"></p>
+      <p><strong>Temperature:</strong> <span id="temp"></span></p>
+      <p><strong>Feels Like:</strong> <span id="feels-like"></span></p>
+      <p><strong>Min/Max:</strong> <span id="min-max"></span></p>
+      <p><strong>Humidity:</strong> <span id="humidity"></span></p>
+      <p><strong>Wind Speed:</strong> <span id="wind"></span></p>
+    </section>
 
-        <!-- Temperature Chart -->
-        <div id="chart-container" style="width: 100%; height: 300px; margin-top: 30px;">
-            <canvas id="temp-chart"></canvas>
-        </div>
+    <button id="toggle-btn" style="display: none;">Toggle Forecast</button>
 
-        <!-- Map Container -->
-        <div id="map-container" style="margin-top: 30px; height: 300px;">
-            <div id="mapid" style="width: 100%; height: 100%;"></div>
-        </div>
+    <section id="hourly-forecast" style="overflow-x: auto;"></section>
 
-        <!-- Hourly Forecast -->
-        <div id="hourly-forecast"></div>
-    </div>
+    <canvas id="temp-chart" height="150"></canvas>
 
-    <script src="script.js"></script>
+    <div id="mapid" style="height: 300px; margin-top: 20px;"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
